@@ -1,0 +1,31 @@
+{
+    "plugins": ["prettier"],
+    "extends": ["next/core-web-vitals", "next/typescript"],
+    "rules": {
+        "prettier/prettier": "error",
+        "no-console": "warn",
+        "import/order": [
+            "warn",
+            {
+                "groups": [
+                    "type",
+                    "builtin",
+                    "object",
+                    "external",
+                    "internal",
+                    "parent",
+                    "sibling",
+                    "index"
+                ],
+                "pathGroups": [
+                    {
+                        "pattern": "~/**",
+                        "group": "external",
+                        "position": "after"
+                    }
+                ],
+                "newlines-between": "always"
+            }
+        ]
+    }
+}
