@@ -1,33 +1,42 @@
 {
-  "name": "quick-code",
-  "version": "0.1.0",
-  "author": "rimidalu",
-  "description": "It is a compact and intuitive code editor designed for developers who value simplicity and efficiency. With its help, you can quickly write, edit and test code without being distracted by unnecessary actions.",
-  "private": true,
-  "license": "BSD 3-Clause",
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "15.1.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "lint-staged": "^15.2.11",
-    "postcss": "^8",
-    "prettier": "^3.4.2",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
-  }
+    "name": "quick-code",
+    "version": "0.1.0",
+    "author": "rimidalu",
+    "description": "It is a compact and intuitive code editor designed for developers who value simplicity and efficiency. With its help, you can quickly write, edit and test code without being distracted by unnecessary actions.",
+    "private": true,
+    "license": "BSD 3-Clause",
+    "scripts": {
+        "dev": "next dev --turbopack",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "next": "15.1.0",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0"
+    },
+    "devDependencies": {
+        "@eslint/eslintrc": "^3",
+        "@types/node": "^20",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "eslint": "^9",
+        "eslint-config-next": "15.1.0",
+        "eslint-plugin-prettier": "^5.2.1",
+        "lint-staged": "^15.2.11",
+        "postcss": "^8",
+        "prettier": "^3.4.2",
+        "tailwindcss": "^3.4.1",
+        "typescript": "^5"
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx}": [
+            "eslint --fix",
+            "prettier --write"
+        ],
+        "**/*.{json,yaml,yml,toml,css,md}": [
+            "prettier --write"
+        ]
+    }
 }
