@@ -16,7 +16,10 @@ interface IResultProps {
 const Result = ({ className }: IResultProps) => {
     return (
         <section
-            className={clsx('flex flex-col gap-2 w-1/2 h-full', className)}
+            className={clsx(
+                'flex flex-col gap-2 w-full md:w-1/2 h-1/2 md:h-full',
+                className
+            )}
         >
             <SectionHeader title={SectionTitles.Result} />
             <Button onClick={() => console.log('Click!')}>Run Code</Button>
