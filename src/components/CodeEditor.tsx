@@ -1,28 +1,41 @@
 'use client'
 
+import type monaco from 'monaco-editor'
+
 import clsx from 'clsx'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import { Editor, OnMount } from '@monaco-editor/react'
+
+import { MONACO_THEMES } from '@/models/redactor.model'
 
 import { LANGUAGES, SectionTitles } from '../models/common.model'
 
 import SectionHeader from './SectionHeader'
 import LanguageSelector from './LanguageSelector'
-import CodeInput from './CodeInput'
 
 interface ICodeEditorProps {
     className?: string
 }
 
 const CodeEditor = ({ className }: ICodeEditorProps) => {
+    const editorRef = useRef<monaco.editor.IStandaloneCodeEditor>(null)
     const [selectedLanguage, setSelectedLanguage] = useState(LANGUAGES[0])
+    const [value, setValue] = useState('d')
 
+    const handleEditorDidMount: OnMount = (editor) => {
+        editorRef.current = editor
+        editor.focus()
+    }
     const handleLanguageChange = (language: string) => {
         setSelectedLanguage(language)
     }
 
     return (
         <section
-            className={clsx('flex flex-col gap-2 w-1/2 h-full', className)}
+            className={clsx(
+                'flex flex-col gap-2 w-full md:w-1/2 h-1/2 md:h-full',
+                className
+            )}
         >
             <SectionHeader title={SectionTitles.CodeEditor} />
             <LanguageSelector
@@ -30,7 +43,21 @@ const CodeEditor = ({ className }: ICodeEditorProps) => {
                 onChange={handleLanguageChange}
                 selectedLanguage={selectedLanguage}
             />
-            <CodeInput />
+            <Editor
+                className="border"
+                options={{
+                    minimap: {
+                        enabled: false,
+                    },
+                }}
+                height="100%"
+                theme={MONACO_THEMES[1]}
+                language={selectedLanguage}
+                defaultValue={'0'}
+                onMount={handleEditorDidMount}
+                value={value}
+                onChange={(value) => setValue(value ?? '')}
+            />
         </section>
     )
 }
