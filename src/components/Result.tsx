@@ -11,7 +11,7 @@ interface IResultProps {
 
 const Result = ({ className }: IResultProps) => {
     return (
-        <section className={clsx('flex flex-col w-1/2', className)}>
+        <section className={clsx('flex flex-col w-1/2 h-full', className)}>
             <SectionHeader title={SectionTitles.Result} />
             <Button />
             <OutputViewer />

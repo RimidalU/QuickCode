@@ -1,7 +1,5 @@
-import React from 'react'
-
 const OutputViewer = () => {
-    return <div>OutputViewer</div>
+    return <div className={'border flex-grow h-full'}>OutputViewer</div>
 }
 
 export default OutputViewer
