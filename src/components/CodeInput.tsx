@@ -1,5 +1,5 @@
 const CodeInput = () => {
-    return <div>CodeInput</div>
+    return <div className="border flex-grow h-full">CodeInput</div>
 }
 
 export default CodeInput

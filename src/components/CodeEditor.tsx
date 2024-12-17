@@ -10,7 +10,7 @@ interface ICodeEditorProps {
 
 const CodeEditor = ({ className }: ICodeEditorProps) => {
     return (
-        <section className={clsx('flex flex-col w-1/2', className)}>
+        <section className={clsx('flex flex-col w-1/2 h-full', className)}>
             <SectionHeader title={SectionTitles.CodeEditor} />
             <LanguageSelector />
             <CodeInput />
