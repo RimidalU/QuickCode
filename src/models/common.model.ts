@@ -3,6 +3,6 @@ enum SectionTitles {
     Result = 'Output',
 }
 
-const LANGUAGES = ['JavaScript', 'Python', 'Java', 'TypeScript']
+const LANGUAGES = ['javascript', 'python', 'java', 'typescript', 'php']
 
 export { SectionTitles, LANGUAGES }
