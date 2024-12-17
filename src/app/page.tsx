@@ -1,6 +1,6 @@
-import CodeEditor from './components/CodeEditor'
-import Footer from './components/Footer'
-import Result from './components/Result'
+import CodeEditor from '../components/CodeEditor'
+import Footer from '../components/Footer'
+import Result from '../components/Result'
 
 export default function Home() {
     return (
