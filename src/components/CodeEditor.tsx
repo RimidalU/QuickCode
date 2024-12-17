@@ -6,7 +6,7 @@ import clsx from 'clsx'
 import { useRef, useState } from 'react'
 import { Editor, OnMount } from '@monaco-editor/react'
 
-import { MONACO_THEMES } from '@/models/redactor.model'
+import { LANGUAGES_SNIPPETS, MONACO_THEMES } from '@/models/editor.model'
 
 import { LANGUAGES, SectionTitles } from '../models/common.model'
 
@@ -20,7 +20,7 @@ interface ICodeEditorProps {
 const CodeEditor = ({ className }: ICodeEditorProps) => {
     const editorRef = useRef<monaco.editor.IStandaloneCodeEditor>(null)
     const [selectedLanguage, setSelectedLanguage] = useState(LANGUAGES[0])
-    const [value, setValue] = useState('d')
+    const [value, setValue] = useState(LANGUAGES_SNIPPETS[0])
 
     const handleEditorDidMount: OnMount = (editor) => {
         editorRef.current = editor
@@ -28,6 +28,7 @@ const CodeEditor = ({ className }: ICodeEditorProps) => {
     }
     const handleLanguageChange = (language: string) => {
         setSelectedLanguage(language)
+        setValue(LANGUAGES_SNIPPETS[language])
     }
 
     return (
@@ -53,7 +54,7 @@ const CodeEditor = ({ className }: ICodeEditorProps) => {
                 height="100%"
                 theme={MONACO_THEMES[1]}
                 language={selectedLanguage}
-                defaultValue={'0'}
+                defaultValue={LANGUAGES_SNIPPETS[selectedLanguage]}
                 onMount={handleEditorDidMount}
                 value={value}
                 onChange={(value) => setValue(value ?? '')}
