@@ -9,7 +9,11 @@ interface IOutputViewerProps {
 const OutputViewer = ({ result, className }: IOutputViewerProps) => {
     return (
         <div className={clsx('border flex-grow h-full', className)}>
-            {result ? result : DEFAULT_MESSAGE}
+            {result
+                ? result
+                      .split('\n')
+                      .map((line, index) => <p key={index}>{line}</p>)
+                : DEFAULT_MESSAGE}
         </div>
     )
 }
