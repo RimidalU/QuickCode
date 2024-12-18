@@ -20,19 +20,24 @@ const Result = ({ className }: IResultProps) => {
     const { selectedLanguage, value } = useEditor()
 
     const [result, setResult] = useState<string | null>(null)
+    const [isLoading, setIsLoading] = useState(false)
 
     const handleClick = async () => {
+        setIsLoading(true)
         const res = await executeCode({
             language: selectedLanguage.language,
             version: selectedLanguage.version,
             content: value,
         })
         setResult(res.run.output)
+        setIsLoading(false)
     }
     return (
         <ResultLayout className={className}>
             <SectionHeader title={SectionTitles.Result} />
-            <Button onClick={handleClick}>Run Code</Button>
+            <Button onClick={handleClick} disabled={isLoading}>
+                Run Code
+            </Button>
             <OutputViewer result={result} />
         </ResultLayout>
     )
