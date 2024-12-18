@@ -14,7 +14,14 @@ import { LANGUAGES_SNIPPETS } from '@/models/editor.model'
 import { fetchAvailableLanguages } from '@/services/piston.service'
 import { getCheckedLanguages } from '@/utils/piston.service.utils'
 
-const FILTER_DATA = ['javascript', 'python2', 'java', 'bash']
+const FILTER_DATA = [
+    'javascript',
+    'python2',
+    'java',
+    'typescript',
+    'php',
+    'bash',
+]
 
 interface EditorContextType {
     selectedLanguage: LanguageInfo
@@ -30,10 +37,9 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
     const [selectedLanguage, setSelectedLanguage] = useState(
         DEFAULT_LANGUAGES[0]
     )
-    const [value, setValue] = useState(LANGUAGES_SNIPPETS[0])
-    const [favoriteLanguages, setFavoriteLanguages] = useState<LanguageInfo[]>([
-        DEFAULT_LANGUAGES[0],
-    ])
+    const [value, setValue] = useState(LANGUAGES_SNIPPETS.javascript)
+    const [favoriteLanguages, setFavoriteLanguages] =
+        useState<LanguageInfo[]>(DEFAULT_LANGUAGES)
 
     const fetchLanguages = useCallback(async () => {
         const availableLanguages: LanguageInfo[] =
@@ -43,7 +49,9 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
             availableLanguages,
             FILTER_DATA
         )
-        setFavoriteLanguages(filteredLanguages)
+        if (availableLanguages.length) {
+            setFavoriteLanguages(filteredLanguages)
+        }
     }, [])
 
     useEffect(() => {
