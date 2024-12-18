@@ -22,8 +22,9 @@ const getCheckedLanguages = (
     availableLanguages: LanguageInfo[],
     languagesToFilter: string[]
 ): LanguageInfo[] =>
-    availableLanguages.filter((item) =>
-        languagesToFilter.includes(item.language)
+    availableLanguages.filter(
+        (item) =>
+            languagesToFilter.includes(item.language) && item.runtime !== 'deno'
     )
 
 export { createExecuteCodeMethodBody, getCheckedLanguages }
