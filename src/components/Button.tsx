@@ -15,7 +15,7 @@ const Button = ({
     return (
         <button
             className={clsx(
-                'w-fit font-bold border text-xl px-3 py-1 rounded-md',
+                'font-bold border text-xl px-3 py-1 rounded-md flex flex-row items-center gap-2 w-32',
                 className
             )}
             onClick={onClick}

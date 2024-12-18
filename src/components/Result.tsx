@@ -11,6 +11,7 @@ import { SectionTitles } from '../models/common.model'
 import SectionHeader from './SectionHeader'
 import Button from './Button'
 import OutputViewer from './OutputViewer'
+import Spinner from './Spinner'
 
 interface IResultProps {
     className?: string
@@ -38,8 +39,18 @@ const Result = ({ className }: IResultProps) => {
     return (
         <ResultLayout className={className}>
             <SectionHeader title={SectionTitles.Result} />
-            <Button onClick={handleClick} disabled={isLoading}>
-                Run Code
+            <Button
+                onClick={handleClick}
+                disabled={isLoading}
+                className={isLoading ? 'text-sm px-2.5' : ''}
+            >
+                {isLoading ? (
+                    <>
+                        <Spinner /> Running...
+                    </>
+                ) : (
+                    'Run Code'
+                )}
             </Button>
             <OutputViewer
                 result={result}
