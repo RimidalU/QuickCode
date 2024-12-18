@@ -28,4 +28,13 @@ const sendPost = async <T>(url: string, values?: T | undefined) => {
     return handleErrors(response)
 }
 
-export { sendPost }
+const sendGet = async <T>(url: string): Promise<T> => {
+    const response = await fetch(url, {
+        ...HEADERS,
+        method: 'GET',
+    })
+
+    return handleErrors(response)
+}
+
+export { sendPost, sendGet }
