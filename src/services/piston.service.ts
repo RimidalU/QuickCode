@@ -10,11 +10,21 @@ enum pistonApiPaths {
     PISTON_RUNTIMES = 'piston/runtimes',
 }
 
-const executeCode = async (language: string, content: string) => {
+interface ExecuteCodeProps {
+    language: string
+    version: string
+    content: string
+}
+
+const executeCode = async ({
+    language,
+    version,
+    content,
+}: ExecuteCodeProps) => {
     const url = `${PISTON_BASE_URL}${pistonApiPaths.PISTON_EXECUTE}`
     const values = createExecuteCodeMethodBody({
         language,
-        version: '18.15.0',
+        version,
         content,
     })
 
