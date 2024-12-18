@@ -5,6 +5,19 @@ const HEADERS = {
     },
 }
 
+const handleErrors = async (response: Response) => {
+    try {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        const data = await response.json()
+
+        return data
+    } catch (error) {
+        console.error('Error fetching languages:', error)
+    }
+}
+
 const sendPost = async <T>(url: string, values?: T | undefined) => {
     const response = await fetch(url, {
         ...HEADERS,
@@ -12,7 +25,7 @@ const sendPost = async <T>(url: string, values?: T | undefined) => {
         body: values && JSON.stringify(values),
     })
 
-    return response
+    return handleErrors(response)
 }
 
 export { sendPost }
