@@ -6,19 +6,34 @@ interface IOutputViewerProps {
     className?: string
     result: string | null
     isLoading: boolean
+    isErrorInCode: boolean
 }
-const OutputViewer = ({ result, className, isLoading }: IOutputViewerProps) => {
-    if (isLoading) {
-        return <h2 className="m-auto">Loading...</h2>
-    }
-
+const OutputViewer = ({
+    result,
+    className,
+    isLoading,
+    isErrorInCode,
+}: IOutputViewerProps) => {
     return (
-        <div className={clsx('border flex-grow h-full', className)}>
-            {result
-                ? result
-                      .split('\n')
-                      .map((line, index) => <p key={index}>{line}</p>)
-                : DEFAULT_MESSAGE}
+        <div
+            className={clsx(
+                'border flex-grow h-full p-2 overflow-y-scroll no-scrollbar',
+                {
+                    'border-red-500 text-red-500 border-2': isErrorInCode,
+                    'flex flex-col justify-center items-center': isLoading,
+                },
+                className
+            )}
+        >
+            {isLoading ? (
+                <h2>Loading...</h2>
+            ) : result ? (
+                result
+                    .split('\n')
+                    .map((line, index) => <p key={index}>{line}</p>)
+            ) : (
+                DEFAULT_MESSAGE
+            )}
         </div>
     )
 }

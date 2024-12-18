@@ -21,15 +21,18 @@ const Result = ({ className }: IResultProps) => {
 
     const [result, setResult] = useState<string | null>(null)
     const [isLoading, setIsLoading] = useState(false)
+    const [isErrorInCode, setIsErrorInCode] = useState(false)
 
     const handleClick = async () => {
         setIsLoading(true)
+        setIsErrorInCode(false)
         const res = await executeCode({
             language: selectedLanguage.language,
             version: selectedLanguage.version,
             content: value,
         })
         setResult(res.run.output)
+        setIsErrorInCode(res.run.stderr)
         setIsLoading(false)
     }
     return (
@@ -38,7 +41,11 @@ const Result = ({ className }: IResultProps) => {
             <Button onClick={handleClick} disabled={isLoading}>
                 Run Code
             </Button>
-            <OutputViewer result={result} isLoading={isLoading} />
+            <OutputViewer
+                result={result}
+                isLoading={isLoading}
+                isErrorInCode={isErrorInCode}
+            />
         </ResultLayout>
     )
 }
