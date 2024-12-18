@@ -50,8 +50,6 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
         fetchLanguages()
     }, [])
 
-    console.log(favoriteLanguages)
-
     return (
         <EditorContext.Provider
             value={{
