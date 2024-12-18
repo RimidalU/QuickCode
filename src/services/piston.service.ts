@@ -1,4 +1,5 @@
 import { createExecuteCodeMethodBody } from '@/utils/piston.service.utils'
+import { LanguageInfo } from '@/models/common.model'
 
 import { sendGet, sendPost } from '../utils/network.utils'
 
@@ -20,7 +21,7 @@ const executeCode = async (language: string, content: string) => {
     return await sendPost(url, values)
 }
 
-const fetchAvailableLanguages = async () => {
+const fetchAvailableLanguages = async (): Promise<LanguageInfo[]> => {
     const url = `${PISTON_BASE_URL}${pistonApiPaths.PISTON_RUNTIMES}`
 
     return await sendGet(url)
