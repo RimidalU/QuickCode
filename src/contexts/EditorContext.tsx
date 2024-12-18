@@ -1,9 +1,20 @@
 'use client'
 
-import { createContext, ReactNode, useContext, useState } from 'react'
+import {
+    createContext,
+    ReactNode,
+    useCallback,
+    useContext,
+    useEffect,
+    useState,
+} from 'react'
 
 import { DEFAULT_LANGUAGES, LanguageInfo } from '@/models/common.model'
 import { LANGUAGES_SNIPPETS } from '@/models/editor.model'
+import { fetchAvailableLanguages } from '@/services/piston.service'
+import { getCheckedLanguages } from '@/utils/piston.service.utils'
+
+const FILTER_DATA = ['javascript', 'python2', 'java', 'bash']
 
 interface EditorContextType {
     selectedLanguage: LanguageInfo
@@ -19,6 +30,26 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
         DEFAULT_LANGUAGES[0]
     )
     const [value, setValue] = useState(LANGUAGES_SNIPPETS[0])
+    const [favoriteLanguages, setFavoriteLanguages] = useState<LanguageInfo[]>([
+        DEFAULT_LANGUAGES[0],
+    ])
+
+    const fetchLanguages = useCallback(async () => {
+        const availableLanguages: LanguageInfo[] =
+            await fetchAvailableLanguages()
+
+        const filteredLanguages = getCheckedLanguages(
+            availableLanguages,
+            FILTER_DATA
+        )
+        setFavoriteLanguages(filteredLanguages)
+    }, [])
+
+    useEffect(() => {
+        fetchLanguages()
+    }, [])
+
+    console.log(favoriteLanguages)
 
     return (
         <EditorContext.Provider
