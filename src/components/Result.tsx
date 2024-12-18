@@ -38,7 +38,7 @@ const Result = ({ className }: IResultProps) => {
             <Button onClick={handleClick} disabled={isLoading}>
                 Run Code
             </Button>
-            <OutputViewer result={result} />
+            <OutputViewer result={result} isLoading={isLoading} />
         </ResultLayout>
     )
 }

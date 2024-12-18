@@ -5,8 +5,13 @@ const DEFAULT_MESSAGE = '// Select "Run Code" to check the results here.'
 interface IOutputViewerProps {
     className?: string
     result: string | null
+    isLoading: boolean
 }
-const OutputViewer = ({ result, className }: IOutputViewerProps) => {
+const OutputViewer = ({ result, className, isLoading }: IOutputViewerProps) => {
+    if (isLoading) {
+        return <h2 className="m-auto">Loading...</h2>
+    }
+
     return (
         <div className={clsx('border flex-grow h-full', className)}>
             {result
