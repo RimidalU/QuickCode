@@ -21,6 +21,7 @@ interface EditorContextType {
     value: string
     setSelectedLanguage: (value: LanguageInfo) => void
     setValue: (newValue: string) => void
+    favoriteLanguages: LanguageInfo[]
 }
 
 const EditorContext = createContext<EditorContextType | undefined>(undefined)
@@ -53,7 +54,13 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
 
     return (
         <EditorContext.Provider
-            value={{ selectedLanguage, value, setSelectedLanguage, setValue }}
+            value={{
+                selectedLanguage,
+                value,
+                setSelectedLanguage,
+                setValue,
+                favoriteLanguages,
+            }}
         >
             {children}
         </EditorContext.Provider>
