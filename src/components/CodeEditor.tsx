@@ -3,12 +3,17 @@
 import type monaco from 'monaco-editor'
 
 import clsx from 'clsx'
-import { useRef, useState } from 'react'
+import { ReactNode, useRef } from 'react'
 import { Editor, OnMount } from '@monaco-editor/react'
 
-import { LANGUAGES_SNIPPETS, MONACO_THEMES } from '@/models/editor.model'
+import {
+    LANGUAGES_SNIPPETS,
+    MONACO_THEMES,
+    unknownSniper,
+} from '@/models/editor.model'
+import { useEditor } from '@/contexts/EditorContext'
 
-import { LANGUAGES, SectionTitles } from '../models/common.model'
+import { SectionTitles } from '../models/common.model'
 
 import SectionHeader from './SectionHeader'
 import LanguageSelector from './LanguageSelector'
@@ -18,31 +23,33 @@ interface ICodeEditorProps {
 }
 
 const CodeEditor = ({ className }: ICodeEditorProps) => {
-    const editorRef = useRef<monaco.editor.IStandaloneCodeEditor>(null)
-    const [selectedLanguage, setSelectedLanguage] = useState(LANGUAGES[0])
-    const [value, setValue] = useState(LANGUAGES_SNIPPETS[0])
+    const {
+        selectedLanguage,
+        setSelectedLanguage,
+        value,
+        setValue,
+        favoriteLanguages,
+    } = useEditor()
 
+    const editorRef = useRef<monaco.editor.IStandaloneCodeEditor>(null)
     const handleEditorDidMount: OnMount = (editor) => {
         editorRef.current = editor
         editor.focus()
     }
     const handleLanguageChange = (language: string) => {
-        setSelectedLanguage(language)
-        setValue(LANGUAGES_SNIPPETS[language])
+        setSelectedLanguage(
+            favoriteLanguages.filter((lang) => lang.language === language)[0]
+        )
+        setValue(LANGUAGES_SNIPPETS[language] ?? unknownSniper)
     }
 
     return (
-        <section
-            className={clsx(
-                'flex flex-col gap-2 w-full md:w-1/2 h-1/2 md:h-full',
-                className
-            )}
-        >
+        <CodeEditorLayout className={className}>
             <SectionHeader title={SectionTitles.CodeEditor} />
             <LanguageSelector
-                options={LANGUAGES}
+                options={favoriteLanguages}
                 onChange={handleLanguageChange}
-                selectedLanguage={selectedLanguage}
+                selectedLanguage={selectedLanguage.language}
             />
             <Editor
                 className="border"
@@ -53,14 +60,35 @@ const CodeEditor = ({ className }: ICodeEditorProps) => {
                 }}
                 height="100%"
                 theme={MONACO_THEMES[1]}
-                language={selectedLanguage}
-                defaultValue={LANGUAGES_SNIPPETS[selectedLanguage]}
+                language={selectedLanguage.language}
+                defaultValue={LANGUAGES_SNIPPETS[selectedLanguage.language]}
                 onMount={handleEditorDidMount}
                 value={value}
                 onChange={(value) => setValue(value ?? '')}
             />
-        </section>
+        </CodeEditorLayout>
     )
 }
 
 export default CodeEditor
+
+interface ICodeEditorLayoutProps {
+    className?: string
+    children: ReactNode[]
+}
+
+export const CodeEditorLayout = ({
+    className,
+    children,
+}: ICodeEditorLayoutProps) => {
+    return (
+        <section
+            className={clsx(
+                'flex flex-col gap-2 w-full md:w-1/2 h-1/2 md:h-full',
+                className
+            )}
+        >
+            {children}
+        </section>
+    )
+}
