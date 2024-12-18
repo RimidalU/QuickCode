@@ -1,3 +1,5 @@
+import { LanguageInfo } from '@/models/common.model'
+
 const createExecuteCodeMethodBody = ({
     language,
     version,
@@ -16,4 +18,12 @@ const createExecuteCodeMethodBody = ({
     ],
 })
 
-export { createExecuteCodeMethodBody }
+const getCheckedLanguages = (
+    availableLanguages: LanguageInfo[],
+    languagesToFilter: string[]
+): LanguageInfo[] =>
+    availableLanguages.filter((item) =>
+        languagesToFilter.includes(item.language)
+    )
+
+export { createExecuteCodeMethodBody, getCheckedLanguages }
