@@ -1,6 +1,6 @@
 import { createExecuteCodeMethodBody } from '@/utils/piston.service.utils'
 
-import { sendPost } from '../utils/network.utils'
+import { sendGet, sendPost } from '../utils/network.utils'
 
 const PISTON_BASE_URL = 'https://emkc.org/api/v2/'
 
@@ -20,4 +20,10 @@ const executeCode = async (language: string, content: string) => {
     return await sendPost(url, values)
 }
 
-export { executeCode }
+const fetchAvailableLanguages = async () => {
+    const url = `${PISTON_BASE_URL}${pistonApiPaths.PISTON_RUNTIMES}`
+
+    return await sendGet(url)
+}
+
+export { executeCode, fetchAvailableLanguages }
