@@ -1,15 +1,19 @@
 import { ReactNode } from 'react'
 
+import { EditorProvider } from '@/contexts/EditorContext'
+
 import CodeEditor from '../components/CodeEditor'
 import Footer from '../components/Footer'
 import Result from '../components/Result'
 
 export default function Home() {
     return (
-        <HomePageLayout footer={<Footer />}>
-            <CodeEditor />
-            <Result />
-        </HomePageLayout>
+        <EditorProvider>
+            <HomePageLayout footer={<Footer />}>
+                <CodeEditor />
+                <Result />
+            </HomePageLayout>
+        </EditorProvider>
     )
 }
 
