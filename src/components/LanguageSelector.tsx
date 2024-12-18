@@ -1,7 +1,9 @@
 import clsx from 'clsx'
 
+import { LanguageInfo } from '@/models/common.model'
+
 interface IDropdownProps {
-    options: string[]
+    options: LanguageInfo[]
     onChange: (selectedLanguage: string) => void
     selectedLanguage: string
     className?: string
@@ -23,8 +25,11 @@ const LanguageSelector = ({
             )}
         >
             {options.map((option) => (
-                <option key={option} value={option}>
-                    {option}
+                <option
+                    key={`${option.language}${option.version}`}
+                    value={option.language}
+                >
+                    {`${option.language}   v.${option.version}`}
                 </option>
             ))}
         </select>
