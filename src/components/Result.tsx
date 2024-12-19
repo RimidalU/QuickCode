@@ -32,6 +32,9 @@ const Result = ({ className }: IResultProps) => {
             version: selectedLanguage.version,
             content: value,
         })
+        if (!res) {
+            setIsLoading(false)
+        }
         setResult(res.run.output)
         setIsErrorInCode(res.run.stderr)
         setIsLoading(false)
@@ -42,11 +45,11 @@ const Result = ({ className }: IResultProps) => {
             <Button
                 onClick={handleClick}
                 disabled={isLoading}
-                className={isLoading ? 'text-sm px-2.5' : ''}
+                className={isLoading ? 'px-2.5' : ''}
             >
                 {isLoading ? (
                     <>
-                        <Spinner /> Running...
+                        <Spinner /> <span className="text-sm">Running...</span>
                     </>
                 ) : (
                     'Run Code'
