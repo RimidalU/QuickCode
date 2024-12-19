@@ -77,7 +77,8 @@ Stack: Next, TypeScript, TailwindCSS, Monaco-editor.
 
 Run [Live Demo](https://quick-code-beta.vercel.app/)
 
-<!-- ![tutorial][tutorial] -->
+<video src="./assets/demo.mp4" controls="controls" style="max-width: 600px;">
+</video>
 
 ## Project Status
 
@@ -107,4 +108,4 @@ Created by [@RimidalU](https://www.linkedin.com/in/uladzimir-stankevich/) - feel
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-<!-- [tutorial]: ./assets/demo.webp -->
+<!-- [tutorial]: ./assets/demo.mp4 -->
