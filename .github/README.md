@@ -4,7 +4,7 @@
 
 > QuickCode - compact and intuitive code editor designed for developers who value simplicity and efficiency.
 
-[![Link to QuickCode](https://img.shields.io/badge/Visit_My_Travels_Landing-Click_Here-black?style=plastic&logo=link&logoColor=black&labelColor=d1d5db&color=111827&link=https://quick-code-beta.vercel.app/)](https://quick-code-beta.vercel.app/)
+[![Link to QuickCode](https://img.shields.io/badge/Visit_QuickCode-Click_Here-black?style=plastic&logo=link&logoColor=black&labelColor=d1d5db&color=111827&link=https://quick-code-beta.vercel.app/)](https://quick-code-beta.vercel.app/)
 
 ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB.svg?style=for-the-badge&logo=React&logoColor=black)
@@ -78,7 +78,7 @@ Stack: Next, TypeScript, TailwindCSS, Monaco-editor.
 
 Run [Live Demo](https://quick-code-beta.vercel.app/)
 
-<video src="./assets/demo.mp4" controls="controls" style="max-width: 600px;"></video>
+<video src="https://github.com/RimidalU/QuickCode/blob/main/.github/assets/demo.mp4" controls="controls"></video>
 
 ## Project Status
 
