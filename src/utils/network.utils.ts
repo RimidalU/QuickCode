@@ -1,3 +1,7 @@
+import { toast } from 'sonner'
+
+import { TOASTER_MESSAGES } from '@/models/toaster.model'
+
 const HEADERS = {
     headers: {
         Accept: 'application/json',
@@ -13,28 +17,36 @@ const handleErrors = async (response: Response) => {
         const data = await response.json()
 
         return data
-    } catch (error) {
-        console.error('Error fetching languages:', error)
+    } catch {
+        toast.error(TOASTER_MESSAGES.fetchingError)
     }
 }
 
 const sendPost = async <T>(url: string, values?: T | undefined) => {
-    const response = await fetch(url, {
-        ...HEADERS,
-        method: 'POST',
-        body: values && JSON.stringify(values),
-    })
+    try {
+        const response = await fetch(url, {
+            ...HEADERS,
+            method: 'POST',
+            body: values && JSON.stringify(values),
+        })
 
-    return handleErrors(response)
+        return handleErrors(response)
+    } catch {
+        toast.error(TOASTER_MESSAGES.fetchingError)
+    }
 }
 
-const sendGet = async <T>(url: string): Promise<T> => {
-    const response = await fetch(url, {
-        ...HEADERS,
-        method: 'GET',
-    })
+const sendGet = async <T>(url: string): Promise<T | undefined> => {
+    try {
+        const response = await fetch(url, {
+            ...HEADERS,
+            method: 'GET',
+        })
 
-    return handleErrors(response)
+        return handleErrors(response)
+    } catch {
+        toast.error(TOASTER_MESSAGES.fetchingError)
+    }
 }
 
 export { sendPost, sendGet }
