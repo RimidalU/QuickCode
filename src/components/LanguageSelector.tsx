@@ -20,7 +20,7 @@ const LanguageSelector = ({
             value={selectedLanguage}
             onChange={(e) => onChange(e.target.value)}
             className={clsx(
-                'w-fit bg-white border text-xl font-bold rounded-md focus:outline-none focus:ring px-3 py-1.5',
+                'w-fit bg-white border text-xl font-bold rounded-md focus:outline-none focus:ring px-3 py-1.5 dark:bg-neutral-900 dark:text-neutral-400',
                 className
             )}
         >
