@@ -72,7 +72,8 @@ Stack: Next, TypeScript, TailwindCSS, Monaco-editor.
 - `Monaco-editor` library to work with code;
 - `husky` and hooks (lint in _pre-commit_, check commit message);
 - [Piston API for executing user-defined code.](https://piston.readthedocs.io/en/latest/api-v2/)
-- Sonner toast component;
+- Sonner toast component for error reporting;
+- switch dark and light themes;
 
 ## How To Use
 
