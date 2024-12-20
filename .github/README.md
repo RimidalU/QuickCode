@@ -88,7 +88,7 @@ Project is: _in progress_
 
 To do:
 
-- [ ] Add theme switcher.
+- [x] Add theme switcher.
 - [x] Add toaster.
 - [ ] ...
 
