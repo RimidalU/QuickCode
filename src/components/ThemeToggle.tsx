@@ -18,7 +18,7 @@ const ThemeToggle = ({ className, disabled = false }: IThemeToggleProps) => {
     return (
         <button
             className={clsx(
-                'flex items-center p-2 rounded-full  hover:bg-yellow-500 dark:bg-neutral-400',
+                'absolute right-10 top-10 flex items-center p-2 rounded-full  hover:bg-yellow-500 dark:bg-neutral-400',
                 className
             )}
             onClick={toggleTheme}
