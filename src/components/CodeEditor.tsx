@@ -8,10 +8,11 @@ import { Editor, OnMount } from '@monaco-editor/react'
 
 import {
     LANGUAGES_SNIPPETS,
-    MONACO_THEMES,
+    monacoThemes,
     unknownSniper,
 } from '@/models/editor.model'
 import { useEditor } from '@/contexts/EditorContext'
+import { useTheme } from '@/contexts/ThemeContext'
 
 import { SectionTitles } from '../models/common.model'
 
@@ -23,6 +24,8 @@ interface ICodeEditorProps {
 }
 
 const CodeEditor = ({ className }: ICodeEditorProps) => {
+    const { theme } = useTheme()
+
     const {
         selectedLanguage,
         setSelectedLanguage,
@@ -59,7 +62,9 @@ const CodeEditor = ({ className }: ICodeEditorProps) => {
                     },
                 }}
                 height="100%"
-                theme={MONACO_THEMES[1]}
+                theme={
+                    theme === 'dark' ? monacoThemes.Dark : monacoThemes.Light
+                }
                 language={selectedLanguage.language}
                 defaultValue={LANGUAGES_SNIPPETS[selectedLanguage.language]}
                 onMount={handleEditorDidMount}
