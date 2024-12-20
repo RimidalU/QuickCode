@@ -35,7 +35,7 @@ const HomePageLayout = ({
 
     return (
         <div
-            className={`items-center justify-items-center h-screen ${theme === 'dark' ? 'dark' : ''}`}
+            className={`items-center justify-items-center h-screen ${theme === 'dark' ? 'dark' : ''} dark:bg-neutral-900 dark:text-neutral-400`}
         >
             <main className="flex flex-col gap-8 items-center md:items-start p-4 md:p-8 md:px-10 md:flex-row w-full max-w-screen-2xl h-full pb-6">
                 {children}
