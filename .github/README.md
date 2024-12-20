@@ -89,7 +89,7 @@ Project is: _in progress_
 To do:
 
 - [ ] Add theme switcher.
-- [ ] Add toaster.
+- [x] Add toaster.
 - [ ] ...
 
 Improvement:
