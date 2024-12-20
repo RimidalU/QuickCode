@@ -7,6 +7,7 @@
     --foreground: #171717;
     --warning: #ff4545;
     --success: #4ade80;
+    --active: #eab308;
 }
 
 @media (prefers-color-scheme: dark) {

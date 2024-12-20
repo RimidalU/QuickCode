@@ -15,6 +15,7 @@ export default {
                 foreground: 'var(--foreground)',
                 warning: 'var(--warning)',
                 success: 'var(--success)',
+                active: 'var(--active)',
             },
         },
     },
