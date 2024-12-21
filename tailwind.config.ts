@@ -16,6 +16,8 @@ export default {
                 warning: 'var(--warning)',
                 success: 'var(--success)',
                 active: 'var(--active)',
+                articleDark: 'var(--article-dark)',
+                articleLight: 'var(--article-light)',
             },
         },
     },

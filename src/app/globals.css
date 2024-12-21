@@ -8,6 +8,8 @@
     --warning: #ff4545;
     --success: #4ade80;
     --active: #eab308;
+    --article-dark: #1f1f1f;
+    --article-light: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {

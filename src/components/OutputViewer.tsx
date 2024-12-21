@@ -17,7 +17,7 @@ const OutputViewer = ({
     return (
         <div
             className={clsx(
-                'border flex-grow h-full p-2 overflow-y-scroll no-scrollbar',
+                'border flex-grow h-full p-2 overflow-y-scroll no-scrollbar bg-articleLight dark:bg-articleDark',
                 {
                     'border-red-500 text-red-500 border-2': isErrorInCode,
                     'flex flex-col justify-center items-center': isLoading,
