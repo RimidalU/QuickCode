@@ -27,11 +27,12 @@ const executeCode = async ({
         version,
         content,
     })
-
     return await sendPost(url, values)
 }
 
-const fetchAvailableLanguages = async (): Promise<LanguageInfo[]> => {
+const fetchAvailableLanguages = async (): Promise<
+    LanguageInfo[] | undefined
+> => {
     const url = `${PISTON_BASE_URL}${pistonApiPaths.PISTON_RUNTIMES}`
 
     return await sendGet(url)

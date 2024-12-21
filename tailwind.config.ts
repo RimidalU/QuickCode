@@ -1,18 +1,25 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss'
 
 export default {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
+    darkMode: 'selector',
+    content: [
+        './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/models/**/*.{js,ts,jsx,tsx,mdx}',
+        './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    ],
+    theme: {
+        extend: {
+            colors: {
+                background: 'var(--background)',
+                foreground: 'var(--foreground)',
+                warning: 'var(--warning)',
+                success: 'var(--success)',
+                active: 'var(--active)',
+                articleDark: 'var(--article-dark)',
+                articleLight: 'var(--article-light)',
+            },
+        },
     },
-  },
-  plugins: [],
-} satisfies Config;
+    plugins: [],
+} satisfies Config

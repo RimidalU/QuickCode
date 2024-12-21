@@ -42,14 +42,14 @@ export const EditorProvider = ({ children }: { children: ReactNode }) => {
         useState<LanguageInfo[]>(DEFAULT_LANGUAGES)
 
     const fetchLanguages = useCallback(async () => {
-        const availableLanguages: LanguageInfo[] =
+        const availableLanguages: LanguageInfo[] | undefined =
             await fetchAvailableLanguages()
 
-        const filteredLanguages = getCheckedLanguages(
-            availableLanguages,
-            FILTER_DATA
-        )
-        if (availableLanguages.length) {
+        if (availableLanguages?.length) {
+            const filteredLanguages = getCheckedLanguages(
+                availableLanguages,
+                FILTER_DATA
+            )
             setFavoriteLanguages(filteredLanguages)
         }
     }, [])

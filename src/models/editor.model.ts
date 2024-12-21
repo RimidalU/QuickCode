@@ -1,4 +1,7 @@
-const MONACO_THEMES = ['vs-dark', 'light']
+enum monacoThemes {
+    Dark = 'vs-dark',
+    Light = 'light',
+}
 
 const LANGUAGES_SNIPPETS: Record<string, string> = {
     javascript: `\nfunction getRandomNumber() {\n\treturn Math.floor(Math.random() * 100) + 1;\n}\n\nconst number = getRandomNumber();\nconsole.log("Number " + number + " generated in JavaScript.");\n`,
@@ -10,4 +13,4 @@ const LANGUAGES_SNIPPETS: Record<string, string> = {
 const unknownSniper =
     'There is no such fragment yet.\nBut you can influence this and send me an interesting option.'
 
-export { MONACO_THEMES, LANGUAGES_SNIPPETS, unknownSniper }
+export { monacoThemes, LANGUAGES_SNIPPETS, unknownSniper }
