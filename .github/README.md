@@ -83,7 +83,7 @@ Run [Live Demo](https://quick-code-beta.vercel.app/)
 
 ## Project Status
 
-Project is: _in progress_
+### _The project has been successfully completed._
 
 ## Room for Improvement
 
