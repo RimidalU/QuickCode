@@ -79,7 +79,7 @@ Stack: Next, TypeScript, TailwindCSS, Monaco-editor.
 
 Run [Live Demo](https://quick-code-beta.vercel.app/)
 
-<video src="https://github.com/RimidalU/QuickCode/blob/main/.github/assets/demo.mp4" controls="controls"></video>
+![tutorial][tutorial]
 
 ## Project Status
 
@@ -109,4 +109,4 @@ Created by [@RimidalU](https://www.linkedin.com/in/uladzimir-stankevich/) - feel
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-<!-- [tutorial]: ./assets/demo.mp4 -->
+[tutorial]: ./assets/demo.webp
