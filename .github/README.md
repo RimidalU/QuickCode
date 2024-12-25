@@ -59,7 +59,8 @@ Stack: Next, TypeScript, TailwindCSS, Monaco-editor.
 │   ├── app                         # Main application component (Next.js)
 │   ├── components                  # Reusable React components
 │   ├── contexts                    # Contexts for state management
-│   ├── models                      # Data model definitions
+│   ├── models          ![tutorial][tutorial]
+            # Data model definitions
 │   ├── services                    # Services for API interactions and logic
 │   ├── utils                       # Utility functions and helpers
 ├── tailwind.config.js              # Tailwind CSS configuration
@@ -79,7 +80,7 @@ Stack: Next, TypeScript, TailwindCSS, Monaco-editor.
 
 Run [Live Demo](https://quick-code-beta.vercel.app/)
 
-<img src="./assets/demo.webp" style="display: block; margin: 0 auto;" width="50%" />
+![tutorial][tutorial]
 
 ## Project Status
 
@@ -94,19 +95,10 @@ To do:
 - [ ] ...
 
 Improvement:
-
-- [ ] ...
-
-## License
-
-This project is open source and available under the [BSD 3-Clause](../LICENSE.md).
-
-## Contact
-
-Created by [@RimidalU](https://www.linkedin.com/in/uladzimir-stankevich/) - feel free to contact me!
+[tutorial]: ./assets/demo.webp
 
 <p align="right"><a href="#start"><img width="45rem" src="./assets/pageUp.svg"></a></p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-<!-- [tutorial]: ./assets/demo.mp4 -->
+[tutorial]: ./assets/demo.webp
